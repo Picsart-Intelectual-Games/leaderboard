@@ -11,7 +11,7 @@ const usersSlice = createSlice({
     },
     setUsers(state, { payload }) {
       Object.assign(state.users, payload);
-    }
+    },
   }
 });
 

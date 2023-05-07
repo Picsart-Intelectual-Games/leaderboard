@@ -1,9 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
 import usersReducer from './slices/users';
+import teamsReducer from './slices/teams';
 
 const reducer = combineReducers({
-  users: usersReducer
+  users: usersReducer,
+  teams: teamsReducer,
 });
 
 export default reducer;
