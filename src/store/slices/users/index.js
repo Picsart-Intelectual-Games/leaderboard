@@ -12,6 +12,9 @@ const usersSlice = createSlice({
     setUsers(state, { payload }) {
       Object.assign(state.users, payload);
     },
+    setUserTeam(state, { userId, teamId }) {
+      
+    }
   }
 });
 

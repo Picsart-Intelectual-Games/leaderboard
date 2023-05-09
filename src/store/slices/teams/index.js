@@ -9,9 +9,9 @@ const teamsSlice = createSlice({
     setTeams(state, { payload }){
       Object.assign(state.teams, payload);
     },
-    resetUsers(state) {
+    resetTeams(state) {
       state.teams = []
-    }
+    },
   }
 });
 

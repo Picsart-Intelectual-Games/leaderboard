@@ -1,9 +1,10 @@
 import './App.css';
+import Leaderboard from './components/Leaderboard';
 
 function App() {
   return (
     <div className="App">
-      test
+      <Leaderboard />
     </div>
   );
 }
