@@ -6,16 +6,17 @@ const usersSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    setSelectedUserId(state, { payload }){
+    setSelectedUserId(state, { payload }) {
       state.selectedUserId = payload;
     },
     setUsers(state, { payload }) {
       Object.assign(state.users, payload);
     },
-    setUserTeam(state, { userId, teamId }) {
-      
+    setUserTeam(state, { payload }) {
+      const { userId, teamId } = payload;
+      state.users[userId].teamId = teamId;
     }
   }
 });
 
-export default usersSlice.reducer;
+export default usersSlice;

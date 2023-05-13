@@ -15,4 +15,4 @@ const teamsSlice = createSlice({
   }
 });
 
-export default teamsSlice.reducer;
+export default teamsSlice;
