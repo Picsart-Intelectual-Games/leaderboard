@@ -8,26 +8,26 @@ const TeamChooser = ({ userId, teamId: userTeamId }) => {
   const dispatch = useDispatch();
   const teams = useSelector(getTeams);
 
-  const teamInputHandler = useCallback((teamId) => {
+  const teamInputHandler = useCallback((e) => {
+    console.log(e.target);
     dispatch(userSlice.actions.setUserTeam({
       userId,
-      teamId: teamId === userTeamId ? null : teamId
+      teamId: e.target.value,
     }));
-  }, [dispatch, userId, userTeamId]);
+  }, [dispatch, userId]);
 
   return (
-    <div>
+    <select onChange={teamInputHandler} name={`${userId}-teams`}>
+      <option value="">Select Team</option>
       {teams.map(team => (
-        <input
-          type="checkbox"
-          checked={team.id === userTeamId}
+        <option
           key={team.id}
-          name={userId}
           value={team.id}
-          onChange={() => teamInputHandler(team.id)}
-        />
+        >
+          {team.name}
+        </option>
       ))}
-    </div>
+    </select>
   );
 };
 

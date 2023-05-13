@@ -5,23 +5,21 @@ const initialState = {
       id: '2sdfsf341231',
       rating: 950,
       name: 'Rob',
-      teamId: null
+      teamId: ''
     },
     'sdfsdfsdf23411': {
       id: 'sdfsdfsdf23411',
       rating: 940,
       name: 'John',
-      teamId: null
+      teamId: ''
     },
     'sd2dfsdf23411': {
       id: 'sd2dfsdf23411',
       rating: 960,
       name: 'Josh',
-      teamId: null
+      teamId: ''
     }
   },
 };
 
 export default initialState;
-
-// Each user should have a name, rating and selected team
