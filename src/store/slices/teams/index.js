@@ -6,8 +6,8 @@ const teamsSlice = createSlice({
   name: 'teams',
   initialState,
   reducers: {
-    setTeams(state, { payload }){
-      Object.assign(state.teams, payload);
+    setTeams(state, { payload: team }) {
+      state.teams[team.id] = team;
     },
     resetTeams(state) {
       state.teams = []

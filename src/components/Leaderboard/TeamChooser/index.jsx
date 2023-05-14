@@ -2,11 +2,11 @@ import { memo, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import userSlice from "../../../store/slices/users";
-import { getTeams } from "../../../store/slices/teams/selectors";
+import { getTeamsArray } from "../../../store/slices/teams/selectors";
 
 const TeamChooser = ({ userId, teamId: userTeamId }) => {
   const dispatch = useDispatch();
-  const teams = useSelector(getTeams);
+  const teams = useSelector(getTeamsArray);
 
   const teamInputHandler = useCallback((e) => {
     console.log(e.target);
