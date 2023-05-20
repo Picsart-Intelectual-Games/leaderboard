@@ -9,7 +9,6 @@ const TeamChooser = ({ userId, teamId: userTeamId }) => {
   const teams = useSelector(getTeamsArray);
 
   const teamInputHandler = useCallback((e) => {
-    console.log(e.target);
     dispatch(userSlice.actions.setUserTeam({
       userId,
       teamId: e.target.value,

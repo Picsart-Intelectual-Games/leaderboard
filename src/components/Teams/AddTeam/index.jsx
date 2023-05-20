@@ -12,7 +12,8 @@ const AddTeam = () => {
       id: Math.random(),
       name: newTeamName,
       score: 0,
-    },))
+    },));
+    setNewTeamName('');
   }, [dispatch, newTeamName]);
 
   return (
