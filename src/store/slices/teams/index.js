@@ -9,6 +9,9 @@ const teamsSlice = createSlice({
     setTeams(state, { payload: team }) {
       state.teams[team.id] = team;
     },
+    setTeamScore(state, { payload : { id, score } }) {
+      state.teams[id].score = score;
+    },
     resetTeams(state) {
       state.teams = []
     },

@@ -10,7 +10,7 @@ const usersSlice = createSlice({
       state.selectedUserId = payload;
     },
     setUsers(state, { payload }) {
-      Object.assign(state.users, payload);
+      state.users = payload;
     },
     setUserTeam(state, { payload }) {
       const { userId, teamId } = payload;

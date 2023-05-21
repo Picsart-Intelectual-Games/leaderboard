@@ -9,14 +9,16 @@ const QuestionBoard = () => {
   const questionsCount = useSelector(getQuestionsCount);
 
   const handleQuestionCountChange = useCallback(e => {
-    dispatch(generalSlice.actions.setQuestionsCount(e.target.value));
+    const { value } = e.target;
+    const numericValue = Number(value.replace(/\D/, ''));
+
+    dispatch(generalSlice.actions.setQuestionsCount(numericValue));
   }, [dispatch]);
 
   return (
     <div>
       <span>Questions</span>
       <input
-        type="number"
         value={questionsCount}
         onChange={handleQuestionCountChange}
       />
