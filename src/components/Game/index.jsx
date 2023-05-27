@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 
 import TeamScoreboard from './TeamScoreboard';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsersArray } from '../../store/slices/users/selectors';
+import { getUsers } from '../../store/slices/users/selectors';
 import { getTeams } from '../../store/slices/teams/selectors';
 import { getQuestionsCount } from '../../store/slices/general/selectors';
 import usersSlice from '../../store/slices/users';
 
-const calculateRating = (rating, score, questionsCount) => {
+const calculateRatings = (rating, score, questionsCount) => {
   console.log({ rating, score, questionsCount });
   return rating + (score - questionsCount / 2);
 }
@@ -16,22 +16,24 @@ const Game = () => {
   const dispatch = useDispatch();
 
   const teams = useSelector(getTeams);
-  const users = useSelector(getUsersArray);
+  const users = useSelector(getUsers);
   const questionsCount = useSelector(getQuestionsCount);
 
   const handleScoreRegister = useCallback(() => {
-    // TODO: change to object before dispatching
-    const updatedUsers = users.map(user => {
+    // TODO: create a normal setter for this
+    const updatedUsers = {};
+
+    for (let key in users) {
+      const user = users[key]
       const { rating, teamId } = user;
-      if (!teamId) return user;
 
-      // TODO: create new seter for ratings only
-      return {
-        ...user,
-        rating: calculateRating(rating, teams[teamId].score, questionsCount),
-      }
-    });
-
+      updatedUsers[key] = !teamId
+        ? user
+        : {
+          ...user,
+          rating: calculateRatings(rating, teams[teamId].score, questionsCount),
+        }
+    }
     dispatch(usersSlice.actions.setUsers(updatedUsers));
   }, [dispatch, questionsCount, teams, users]);
 
