@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 
+import Teams from './Teams';
 import TeamScoreboard from './TeamScoreboard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../store/slices/users/selectors';
@@ -39,10 +40,11 @@ const Game = () => {
 
   return (
     <div>
+      <Teams />
+      <TeamScoreboard />
       <button onClick={handleScoreRegister}>
         Register the Scores
       </button>
-      <TeamScoreboard />
     </div>
   )
 };
