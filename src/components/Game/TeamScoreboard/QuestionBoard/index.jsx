@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getQuestionsCount } from "../../../../store/slices/general/selectors";
 import generalSlice from "../../../../store/slices/general";
+import useStyles from "./styles";
 
 const QuestionBoard = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const questionsCount = useSelector(getQuestionsCount);
 
@@ -16,12 +18,14 @@ const QuestionBoard = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div>Questions</div>
+    <div className={classes.root}>
       <input
+        size={2}
         value={questionsCount}
+        className={classes.questionInput}
         onChange={handleQuestionCountChange}
       />
+      <span>Questions</span>
     </div>
   )
 };
