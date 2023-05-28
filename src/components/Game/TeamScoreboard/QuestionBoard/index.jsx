@@ -17,7 +17,7 @@ const QuestionBoard = () => {
 
   return (
     <div>
-      <span>Questions</span>
+      <div>Questions</div>
       <input
         value={questionsCount}
         onChange={handleQuestionCountChange}

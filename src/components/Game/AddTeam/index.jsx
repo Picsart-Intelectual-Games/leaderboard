@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useCallback, useState } from "react";
-import teamsSlice from "../../../../store/slices/teams";
+import teamsSlice from "../../../store/slices/teams";
 
 const AddTeam = () => {
   const dispatch = useDispatch();

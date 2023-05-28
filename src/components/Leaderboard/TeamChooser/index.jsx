@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import userSlice from "../../../store/slices/users";
 import { getTeamsArray } from "../../../store/slices/teams/selectors";
+import useStyles from "./styles";
 
 const TeamChooser = ({ userId, teamId: userTeamId }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const teams = useSelector(getTeamsArray);
 
@@ -16,7 +18,11 @@ const TeamChooser = ({ userId, teamId: userTeamId }) => {
   }, [dispatch, userId]);
 
   return (
-    <select onChange={teamInputHandler} name={`${userId}-teams`}>
+    <select
+      className={classes.root}
+      onChange={teamInputHandler}
+      name={`${userId}-teams`}
+    >
       <option value="">Select Team</option>
       {teams.map(team => (
         <option

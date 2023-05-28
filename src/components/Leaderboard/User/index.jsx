@@ -3,8 +3,10 @@ import { memo, useCallback, useState } from 'react';
 import TeamChooser from '../TeamChooser';
 import { useDispatch } from 'react-redux';
 import usersSlice from '../../../store/slices/users';
+import useStyles from './styles';
 
 const User = ({ id, place, name, rating, teamId }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const [isEditActive, setIsEditActive] = useState(false);
@@ -25,16 +27,22 @@ const User = ({ id, place, name, rating, teamId }) => {
   }, []);
 
   return (
-    <div>
-      <div>{place}</div>
+    <div className={classes.root}>
+      <span className={classes.place}>{place}</span>
       <input
+        className={classes.name}
         value={currentName}
         disabled={!isEditActive}
         placeholder='Enter a name'
         onChange={handleNameChange}
       />
-      <div>{rating}</div>
-      <button onClick={handleUserEdit}>{isEditActive ? 'Done' : 'Edit'}</button>
+      <span className={classes.rating}>{rating}</span>
+      <button
+        onClick={handleUserEdit}
+        className={classes.rating}
+      >
+        {isEditActive ? 'Done' : 'Edit'}
+      </button>
       <TeamChooser
         userId={id}
         teamId={teamId}

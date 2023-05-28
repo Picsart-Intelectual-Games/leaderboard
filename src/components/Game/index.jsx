@@ -1,12 +1,13 @@
 import { useCallback } from 'react';
 
-import Teams from './Teams';
+import AddTeam from './AddTeam';
 import TeamScoreboard from './TeamScoreboard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../store/slices/users/selectors';
 import { getTeams } from '../../store/slices/teams/selectors';
 import { getQuestionsCount } from '../../store/slices/general/selectors';
 import usersSlice from '../../store/slices/users';
+import useStyles from './styles';
 
 const calculateRatings = (rating, score, questionsCount) => {
   console.log({ rating, score, questionsCount });
@@ -14,6 +15,7 @@ const calculateRatings = (rating, score, questionsCount) => {
 }
 
 const Game = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const teams = useSelector(getTeams);
@@ -39,8 +41,8 @@ const Game = () => {
   }, [dispatch, questionsCount, teams, users]);
 
   return (
-    <div>
-      <Teams />
+    <div className={classes.root}>
+      <AddTeam />
       <TeamScoreboard />
       <button onClick={handleScoreRegister}>
         Register the Scores
