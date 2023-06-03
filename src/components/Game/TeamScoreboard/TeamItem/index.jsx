@@ -1,36 +1,21 @@
-import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { memo } from 'react';
 
-import teamsSlice from '../../../../store/slices/teams';
-import { getQuestionsCount } from '../../../../store/slices/general/selectors';
+import Triangle from "../Triangle";
 import useStyles from './styles';
 
-const TeamItem = ({ team: { id, name, score } }) => {
+const TeamItem = ({ team, countHandler }) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
-  const questionsCount = useSelector(getQuestionsCount);
-
-  const handleScoreChange = useCallback(e => {
-    const { value } = e.target;
-    const numericValue = Number(value.replace(/\D/, ''));
-
-    if (numericValue > questionsCount) return;
-
-    dispatch(teamsSlice.actions.setTeamScore({
-      id,
-      score: numericValue,
-    }));
-  }, [dispatch, id, questionsCount]);
 
   return (
     <div className={classes.root}>
-      <input
+      <Triangle isUp onClick={() => countHandler(team, true)} />
+      <div
         className={classes.scoreInput}
-        value={score}
-        size={2}
-        onChange={handleScoreChange}
-      />
-      <span>{name}</span>
+      >
+        {team.score}
+      </div>
+      <Triangle onClick={() => countHandler(team)} />
+      <span>{team.name}</span>
     </div>
   )
 };

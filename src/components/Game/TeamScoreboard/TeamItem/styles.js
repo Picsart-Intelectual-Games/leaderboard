@@ -6,6 +6,8 @@ const useStyles = createUseStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     margin: [0, 8],
+    width: 100,
+    border: '1px solid black'
   },
   scoreInput: {
     border: 'none',
