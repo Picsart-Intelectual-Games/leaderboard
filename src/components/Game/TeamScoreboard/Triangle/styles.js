@@ -1,4 +1,5 @@
 import { createUseStyles } from 'react-jss';
+import { BUTTON_PRIMARY_COLOR, BUTTON_PRIMARY_COLOR_ACTIVE } from '../../../../constants';
 
 const useStyles = createUseStyles({
   root: {
@@ -12,10 +13,10 @@ const useStyles = createUseStyles({
     strokeWidth: 1
   },
   polygonPressed: {
-    fill: 'red'
+    fill: BUTTON_PRIMARY_COLOR
   },
   polygonNotPressed: {
-    fill: 'orange'
+    fill: BUTTON_PRIMARY_COLOR_ACTIVE
   }
 }, {
   name: 'triangle',

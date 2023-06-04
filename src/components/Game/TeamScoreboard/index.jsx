@@ -14,11 +14,11 @@ const TeamScoreboard = () => {
   const teams = useSelector(getTeamsArray);
   const questionsCount = useSelector(getQuestionsCount);
 
-  const allItems = useMemo(() => [...teams, {
+  const questionTeamItem = useMemo(() => ({
     id: 'questions',
     name: 'Questions',
     score: questionsCount,
-  }], [questionsCount, teams]);
+  }), [questionsCount]);
 
   const handleScoreChange = useCallback((team, isUp) => {
     const newScore = team.score + (isUp ? 1 : -1);
@@ -40,15 +40,23 @@ const TeamScoreboard = () => {
 
   return (
     <div className={classes.root}>
-      {
-        allItems.map(team => (
-          <TeamItem
-            key={team.id}
-            team={team}
-            countHandler={handleScoreChange}
-          />
-        ))
-      }
+      <div className={classes.scoreboard}>
+        {
+          teams.map(team => (
+            <TeamItem
+              key={team.id}
+              team={team}
+              countHandler={handleScoreChange}
+            />
+          ))
+        }
+      </div>
+      <div>
+        <TeamItem
+          team={questionTeamItem}
+          countHandler={handleScoreChange}
+        />
+      </div>
     </div>
   )
 };

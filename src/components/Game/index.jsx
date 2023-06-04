@@ -44,7 +44,7 @@ const Game = () => {
     <div className={classes.root}>
       <AddTeam />
       <TeamScoreboard />
-      <button onClick={handleScoreRegister}>
+      <button className={classes.registerGameButton} onClick={handleScoreRegister}>
         Register the Scores
       </button>
     </div>

@@ -1,5 +1,7 @@
 import { createUseStyles } from "react-jss";
 
+import { BUTTON_PRIMARY_COLOR, BUTTON_PRIMARY_COLOR_ACTIVE } from "../../../constants";
+
 const useStyles = createUseStyles({
   root: {
     display: 'flex',
@@ -13,12 +15,12 @@ const useStyles = createUseStyles({
     borderRadius: 12,
   },
   button: {
-    backgroundColor: '#08659c',
+    backgroundColor: BUTTON_PRIMARY_COLOR,
     color: 'white',
     borderRadius: 12,
     border: 'none',
     '&:hover': {
-      backgroundColor: '#0b8cd9',
+      backgroundColor: BUTTON_PRIMARY_COLOR_ACTIVE,
       cursor: 'pointer',
     }
   }
