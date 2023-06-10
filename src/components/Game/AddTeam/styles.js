@@ -21,7 +21,6 @@ const useStyles = createUseStyles({
     border: 'none',
     '&:hover': {
       backgroundColor: BUTTON_PRIMARY_COLOR_ACTIVE,
-      cursor: 'pointer',
     }
   }
 }, {

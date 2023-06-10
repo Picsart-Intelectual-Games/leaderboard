@@ -6,7 +6,6 @@ const useStyles = createUseStyles({
     border: 'none',
     background: 'none',
     padding: 0,
-    cursor: 'pointer'
   },
   polygon: {
     stroke: 'black',

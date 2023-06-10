@@ -5,27 +5,19 @@ const useStyles = createUseStyles({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    borderBottom: '1px solid black',
-  },
-  place: {
-    width: 25,
-    padding: 8,
-    borderRight: '1px solid black',
   },
   nameInput: {
     width: '100%',
+    margin: 8,
     fontSize: 'inherit',
-    margin: 8,
   },
-  rating: {
-    margin: 8,
-  },
-  editButton: {
+  addButton: {
     margin: 8,
     fontSize: 18,
+    whiteSpace: 'nowrap'
   }
 }, {
-  name: 'user',
+  name: 'add-user',
 });
 
 export default useStyles;

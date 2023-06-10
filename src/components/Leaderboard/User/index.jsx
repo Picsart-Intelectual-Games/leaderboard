@@ -30,7 +30,7 @@ const User = ({ id, place, name, rating, teamId }) => {
     <div className={classes.root}>
       <span className={classes.place}>{place}</span>
       <input
-        className={classes.name}
+        className={classes.nameInput}
         value={currentName}
         disabled={!isEditActive}
         placeholder='Enter a name'
@@ -39,7 +39,7 @@ const User = ({ id, place, name, rating, teamId }) => {
       <span className={classes.rating}>{rating}</span>
       <button
         onClick={handleUserEdit}
-        className={classes.rating}
+        className={classes.editButton}
       >
         {isEditActive ? 'Done' : 'Edit'}
       </button>

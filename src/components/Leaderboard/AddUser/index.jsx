@@ -1,8 +1,10 @@
 import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import usersSlice from '../../../store/slices/users';
+import useStyles from './styles';
 
 const AddUser = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
@@ -17,13 +19,19 @@ const AddUser = () => {
   }, [dispatch, name]);
 
   return (
-    <div>
+    <div className={classes.root}>
       <input
         value={name}
         onChange={handleNameChange}
+        className={classes.nameInput}
         placeholder='Enter a name'
       />
-      <button onClick={handleAddUser}>Add User</button>
+      <button
+        className={classes.addButton}
+        onClick={handleAddUser}
+      >
+        Add User
+      </button>
     </div>
   )
 };

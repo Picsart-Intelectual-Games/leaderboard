@@ -4,6 +4,7 @@ import { BUTTON_PRIMARY_COLOR, BUTTON_PRIMARY_COLOR_ACTIVE } from '../../constan
 const useStyles = createUseStyles({
   root: {
     margin: 16,
+    width: '100%',
   },
   registerGameButton: {
     backgroundColor: BUTTON_PRIMARY_COLOR,
@@ -14,7 +15,6 @@ const useStyles = createUseStyles({
     border: 'none',
     '&:hover': {
       backgroundColor: BUTTON_PRIMARY_COLOR_ACTIVE,
-      cursor: 'pointer',
     }
   }
 }, {
