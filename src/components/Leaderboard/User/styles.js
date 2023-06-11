@@ -1,28 +1,52 @@
 import { createUseStyles } from 'react-jss';
+import { BUTTON_PRIMARY_COLOR, BUTTON_PRIMARY_COLOR_ACTIVE } from '../../../constants';
 
 const useStyles = createUseStyles({
   root: {
-    display: 'flex',
+    display: 'grid',
+    gridAutoFlow: 'column',
+    gridTemplateColumns: 'auto 1fr auto auto auto',
+    gridGap: 8,
+    padding: [8, 0],
     justifyContent: 'center',
     width: '100%',
     borderBottom: '1px solid black',
   },
   place: {
     width: 25,
-    padding: 8,
     borderRight: '1px solid black',
   },
   nameInput: {
     width: '100%',
     fontSize: 'inherit',
-    margin: 8,
+    border: 'none',
+    backgroundColor: 'white',
   },
   rating: {
-    margin: 8,
+    width: 60,
   },
   editButton: {
-    margin: 8,
+    padding: 0,
+    margin: 0,
+    width: 60,
     fontSize: 18,
+    backgroundColor: BUTTON_PRIMARY_COLOR,
+    color: 'white',
+    borderRadius: 12,
+    border: 'none',
+    '&:hover': {
+      backgroundColor: BUTTON_PRIMARY_COLOR_ACTIVE,
+    }
+  },
+  activeEditButton: {
+    backgroundColor: '#009e4c',
+    '&:hover': {
+      backgroundColor: '#1fcf74',
+    }
+  },
+  teamChooser: {
+    fontSize: 16,
+    marginRight: 8,
   }
 }, {
   name: 'user',

@@ -14,3 +14,7 @@ button {
 select {
   cursor: pointer;
 }
+
+*:focus {
+  outline: none;
+}

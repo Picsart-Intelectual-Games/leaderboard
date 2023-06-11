@@ -14,6 +14,7 @@ const AddUser = () => {
   }, []);
 
   const handleAddUser = useCallback(() => {
+    if (!name) return;
     dispatch(usersSlice.actions.addUser(name));
     setName('');
   }, [dispatch, name]);
