@@ -23,7 +23,8 @@ function App() {
     }).catch((error) => {
       console.error(error);
     });
-  }, []);
+    // TODO: CI/CD forced to add this dependancy, check for rerenders
+  }, [dispatch]);
 
   return (
     <div className={classes.root}>
