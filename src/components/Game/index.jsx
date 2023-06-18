@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { set, ref } from 'firebase/database';
 
 import AddTeam from './AddTeam';
 import TeamScoreboard from './TeamScoreboard';
@@ -8,6 +9,7 @@ import { getTeams } from '../../store/slices/teams/selectors';
 import { getQuestionsCount } from '../../store/slices/general/selectors';
 import usersSlice from '../../store/slices/users';
 import useStyles from './styles';
+import database from '../../db';
 
 const calculateRatings = (rating, score, questionsCount) => {
   console.log({ rating, score, questionsCount });
@@ -24,6 +26,7 @@ const Game = () => {
 
   const handleScoreRegister = useCallback(() => {
     // TODO: create a normal setter for this
+    // TODO: Try to involve only users who are playing
     const updatedUsers = {};
 
     for (let key in users) {
@@ -37,6 +40,7 @@ const Game = () => {
           rating: calculateRatings(rating, teams[teamId].score, questionsCount),
         }
     }
+    set(ref(database, 'users/'), updatedUsers);
     dispatch(usersSlice.actions.setUsers(updatedUsers));
   }, [dispatch, questionsCount, teams, users]);
 

@@ -1,10 +1,12 @@
 import { memo, useCallback, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { ref, set } from 'firebase/database';
 import usersSlice from '../../../store/slices/users';
 import useStyles from './styles';
 import { getTeamsArray } from '../../../store/slices/teams/selectors';
 import classNames from 'classnames';
+import database from '../../../db';
 
 const User = ({ id, place, name, rating, teamId }) => {
   const classes = useStyles();
@@ -16,6 +18,12 @@ const User = ({ id, place, name, rating, teamId }) => {
 
   const handleUserEdit = useCallback(() => {
     if (isEditActive) {
+      // TODO: is this a good place?
+      set(ref(database, `users/${id}`), {
+        id,
+        name: currentName,
+      });
+
       dispatch(usersSlice.actions.updateUserName({
         id,
         name: currentName
