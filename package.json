@@ -1,4 +1,5 @@
 {
+  "homepage": "https://picsart-intelectual-games.github.io/leaderboard/",
   "name": "picsart-intelectual-games-leaderboard",
   "version": "0.1.0",
   "private": true,
@@ -6,6 +7,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "classnames": "^2.3.2",
     "firebase": "^9.22.2",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-jss": "10.5.1",
@@ -14,6 +16,8 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test"
