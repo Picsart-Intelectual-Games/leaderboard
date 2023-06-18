@@ -1,9 +1,20 @@
 import { v4 as uuid } from 'uuid';
+import database from '../../../../db';
+import { ref, set } from "firebase/database";
 
 const createUser = (name) => {
-  return {
+  const id = uuid();
+
+  // TODO: is this a good place?
+  set(ref(database, 'users/' + id), {
+    id,
     name,
-    id: uuid(),
+    rating: 1000,
+  });
+
+  return {
+    id,
+    name,
     teamId: '',
     rating: 1000,
   };
