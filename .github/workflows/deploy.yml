@@ -26,6 +26,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
           REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
           REACT_APP_FIREBASE_DATABASE_URL: ${{ secrets.REACT_APP_FIREBASE_DATABASE_URL }}
@@ -36,4 +37,5 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          npx gh-pages -d build -b gh-pages --repo https://github.com/Picsart-Intelectual-Games/leaderboard.git
+          git remote set-url origin  https://github.com/Picsart-Intelectual-Games/leaderboard.git
+          npx gh-pages -d build -b gh-pages --dist .
