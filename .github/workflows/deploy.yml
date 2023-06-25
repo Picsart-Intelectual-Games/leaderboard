@@ -26,8 +26,6 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.name "Robert Hovhannisyan"
-          git config --global user.email "robhov97@gmail.com"
           npm install -g gh-pages
           gh-pages -d build -b gh-pages
         env:
