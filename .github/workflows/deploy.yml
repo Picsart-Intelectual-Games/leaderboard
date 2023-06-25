@@ -28,8 +28,6 @@ jobs:
         run: |
           git config --global user.name "Robert Hovhannisyan"
           git config --global user.email "robhov97@gmail.com"
-          eval "$(ssh-agent -s)"
-          echo "$SSH_PRIVATE_KEY" | ssh-add -
           npm install -g gh-pages
           gh-pages -d build -b gh-pages
         env:
