@@ -15,10 +15,6 @@ build:
 pages:
   image: alpine:latest
   stage: deploy
-  variables:
-    GIT_STRATEGY: none # Do not clone git repo
-    NODE_ENV: production
-    PUBLIC_URL: http://gitlab-react-page.garrick.monster
   script:
     # Rename the CRA `build` folder to `public`
     - mv build public
